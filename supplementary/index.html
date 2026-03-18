@@ -472,9 +472,9 @@
         media.muted = true;
         media.defaultMuted = true;
         media.loop = true;
-        media.preload = "metadata";
+        media.preload = "none";
         media.playsInline = true;
-        media.src = path;
+        media.dataset.src = path;
 
         media.addEventListener("error", () => {
           const placeholder = document.createElement("div");
@@ -491,10 +491,23 @@
         return card;
       }
 
+      function ensureVideoLoaded(video) {
+        if (!video || video.dataset.loaded === "true") {
+          return;
+        }
+
+        video.src = video.dataset.src;
+        video.dataset.loaded = "true";
+        video.load();
+      }
+
       function syncVideoGroup(group) {
         const videos = Array.from(group.querySelectorAll(".video-player"));
         if (videos.length < 2) {
-          videos.forEach((video) => video.play().catch(() => {}));
+          videos.forEach((video) => {
+            ensureVideoLoaded(video);
+            video.play().catch(() => {});
+          });
           return;
         }
 
@@ -521,6 +534,7 @@
 
         const playAll = () => {
           videos.forEach((video) => {
+            ensureVideoLoaded(video);
             if (Math.abs(video.currentTime - leader.currentTime) > 0.12) {
               video.currentTime = leader.currentTime;
             }
@@ -549,6 +563,7 @@
 
         videos.slice(1).forEach((video) => {
           video.addEventListener("play", () => {
+            ensureVideoLoaded(leader);
             if (leader.paused) {
               leader.play().catch(() => {});
             }
@@ -714,28 +729,87 @@
         return group;
       }
 
-      Object.entries(galleries).forEach(([key, items]) => {
+      function mountVideoGallery(key, items) {
         const mount = document.querySelector(`[data-gallery="${key}"]`);
-        items.forEach((path) => mount.appendChild(buildCard(path)));
-      });
+        if (!mount || mount.dataset.rendered === "true") {
+          return;
+        }
 
-      Object.entries(imageSections).forEach(([sectionKey, section]) => {
+        items.forEach((path) => mount.appendChild(buildCard(path)));
+        mount.dataset.rendered = "true";
+
+        const group = mount.closest(".results-group");
+        if (group && group.querySelector(".video-player")) {
+          syncVideoGroup(group);
+        }
+      }
+
+      function mountImageSection(sectionKey, section) {
         const mount = document.querySelector(`[data-image-section="${sectionKey}"]`);
+        if (!mount || mount.dataset.rendered === "true") {
+          return;
+        }
+
         section.categories.forEach((category, index) => {
           mount.appendChild(buildImageCategory(sectionKey, category, index));
         });
-      });
+        mount.dataset.rendered = "true";
+      }
 
-      const qualitativeMount = document.querySelector('[data-comparison-section="qualitative"]');
-      qualitativeComparisons.forEach((edit, index) => {
-        qualitativeMount.appendChild(buildQualitativeComparison(edit, index));
-      });
-
-      document.querySelectorAll(".results-group").forEach((group) => {
-        if (group.querySelector(".video-player")) {
-          syncVideoGroup(group);
+      function mountQualitativeSection() {
+        const qualitativeMount = document.querySelector('[data-comparison-section="qualitative"]');
+        if (!qualitativeMount || qualitativeMount.dataset.rendered === "true") {
+          return;
         }
+
+        qualitativeComparisons.forEach((edit, index) => {
+          qualitativeMount.appendChild(buildQualitativeComparison(edit, index));
+        });
+        qualitativeMount.dataset.rendered = "true";
+      }
+
+      function observeLazySection(selector, render) {
+        const section = document.querySelector(selector);
+        if (!section) {
+          return;
+        }
+
+        const mountOnce = () => {
+          render();
+          observer.disconnect();
+        };
+
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                mountOnce();
+              }
+            });
+          },
+          { rootMargin: "300px 0px" }
+        );
+
+        observer.observe(section);
+      }
+
+      observeLazySection("#wan21", () => {
+        Object.entries(galleries)
+          .filter(([key]) => key.startsWith("wan21-"))
+          .forEach(([key, items]) => mountVideoGallery(key, items));
       });
+
+      observeLazySection("#wan-vace", () => {
+        Object.entries(galleries)
+          .filter(([key]) => key.startsWith("wan-vace-"))
+          .forEach(([key, items]) => mountVideoGallery(key, items));
+      });
+
+      Object.entries(imageSections).forEach(([sectionKey, section]) => {
+        observeLazySection(`#${sectionKey}`, () => mountImageSection(sectionKey, section));
+      });
+
+      observeLazySection("#qualitative", mountQualitativeSection);
     </script>
   </body>
 </html>

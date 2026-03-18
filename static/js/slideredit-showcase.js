@@ -1,4 +1,30 @@
 document.addEventListener('DOMContentLoaded', function() {
+  function ensureFrameLoaded(frame) {
+    if (!frame) {
+      return;
+    }
+
+    if (frame.tagName === 'IMG') {
+      if (!frame.getAttribute('src') && frame.dataset.src) {
+        frame.src = frame.dataset.src;
+      }
+      return;
+    }
+
+    if (frame.tagName === 'VIDEO') {
+      var source = frame.querySelector('source');
+      if (!source) {
+        return;
+      }
+
+      var pendingSrc = source.dataset.src;
+      if (pendingSrc && source.getAttribute('src') !== pendingSrc) {
+        source.src = pendingSrc;
+        frame.load();
+      }
+    }
+  }
+
   document.querySelectorAll('.slider-card').forEach(function(card) {
     var input = card.querySelector('.showcase-range');
     var gallery = card.querySelector('[data-slider-gallery]');
@@ -37,6 +63,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         if (frame.tagName === 'VIDEO') {
           if (isActive) {
+            ensureFrameLoaded(frame);
             var applyTime = function() {
               var duration = Number.isFinite(frame.duration) ? frame.duration : 0;
               frame.currentTime = duration > 0 ? Math.min(previousTime, Math.max(duration - 0.05, 0)) : previousTime;
