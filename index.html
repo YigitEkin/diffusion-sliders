@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <!-- Meta tags for social media banners, these should be filled in appropriatly as they are your "business card" -->
+  <!-- Replace the content tag with appropriate information -->
+  <meta name="description" content="Project page for The Unreasonable Effectiveness of Text Embedding Interpolation for Continuous Image Steering, with interactive image and video steering results across Qwen, FLUX, Wan2.1, and Wan Vace.">
+  <meta property="og:title" content="The Unreasonable Effectiveness of Text Embedding Interpolation for Continuous Image Steering"/>
+  <meta property="og:description" content="Explore interactive continuous steering results across image and video generation models including Qwen Image Edit, FLUX, Wan2.1, and Wan Vace."/>
+  <meta property="og:url" content="https://yigitekin.github.io/diffusion-sliders/"/>
+  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X630-->
+  <meta property="og:image" content="images.png" />
+  <meta property="og:image:width" content="1200"/>
+  <meta property="og:image:height" content="630"/>
+  <script src="https://www.w3counter.com/tracker.js?id=152604"></script>
+
+  <meta name="twitter:title" content="The Unreasonable Effectiveness of Text Embedding Interpolation for Continuous Image Steering">
+  <meta name="twitter:description" content="Interactive project page with continuous image and video steering results on Qwen, FLUX, Wan2.1, and Wan Vace.">
+  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X600-->
+  <meta name="twitter:image" content="images.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <!-- Keywords for your paper to be indexed by-->
+  <meta name="keywords" content="continuous image steering, text embedding interpolation, diffusion steering, image editing, video steering, Qwen Image Edit, FLUX, Wan2.1, Wan Vace">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+  <title>Diffusion Steering</title>
+  <link rel="icon" type="image/png" href="images.png">
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+  rel="stylesheet">
+
+  <link rel="stylesheet" href="static/css/bulma.min.css">
+  <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+  href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="static/css/index.css">
+  <link rel="stylesheet" href="static/css/slideredit-showcase.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
+  <script defer src="static/js/fontawesome.all.min.js"></script>
+  <script src="static/js/bulma-carousel.min.js"></script>
+  <script src="static/js/bulma-slider.min.js"></script>
+  <script src="static/js/index.js"></script>
+  <script src="static/js/slideredit-showcase.js"></script>
+</head>
+<body>
+
+
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-3 publication-title">The Unreasonable Effectiveness of <br/>  Text Embedding Interpolation <br/>  for Continuous Image Steering</h1>
+            <div class="is-size-5 publication-authors">
+              <!-- Paper authors -->
+              <span class="author-block">
+                <a href="https://yigitekin.github.io" target="_blank">Yiğit Ekin</a>
+              </span>
+              <span class="author-block">
+              </span>
+              <span class="author-block">
+              </span>
+
+                <span class="author-block">
+                  <a href="https://yossigandelsman.github.io" target="_blank">Yossi Gandelsman</a>
+                </span>
+                </div>
+
+                  <div class="is-size-6 publication-authors">
+                    <span class="author-block">Reve</span>
+                  </div>
+
+                  <div class="column has-text-centered">
+                    <div class="publication-links">
+                         <!-- Arxiv PDF link -->
+                      <span class="link-block">
+                        <a href="https://arxiv.org/pdf/<ARXIV PAPER ID>.pdf" target="_blank"
+                        class="external-link button is-normal is-rounded is-dark">
+                        <span class="icon">
+                          <i class="fas fa-file-pdf"></i>
+                        </span>
+                        <span>Paper</span>
+                      </a>
+                    </span>
+
+
+                  <!-- Github link -->
+                  <span class="link-block">
+                    <a href="https://github.com/YigitEkin/diffusion-sliders" target="_blank"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fab fa-github"></i>
+                    </span>
+                    <span>Code</span>
+                  </a>
+                </span>
+
+                <!-- ArXiv abstract Link -->
+                <span class="link-block">
+                  <a href="https://arxiv.org/abs/<ARXIV PAPER ID>" target="_blank"
+                  class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                    <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+
+              <span class="link-block">
+                <a href="supplementary/index.html" target="_blank"
+                class="external-link button is-normal is-rounded is-dark">
+                <span class="icon">
+                  <i class="fas fa-images"></i>
+                </span>
+                <span>Supplementary</span>
+              </a>
+            </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- Slider showcase -->
+<section class="section slider-showcase">
+  <div class="container is-max-desktop">
+    <div class="showcase-header has-text-centered">
+      <h2 class="title is-3">Continuous Steering Examples</h2>
+    </div>
+    <div class="slider-grid">
+      <article class="slider-card">
+        <div class="slider-media" data-slider-gallery>
+          <img src="assets/qwen/zoom/0.png" alt="Steering example 1, frame 1">
+          <img src="assets/qwen/zoom/1.png" alt="Steering example 1, frame 2">
+          <img src="assets/qwen/zoom/2.png" alt="Steering example 1, frame 3">
+          <img src="assets/qwen/zoom/3.png" alt="Steering example 1, frame 4">
+          <img src="assets/qwen/zoom/4.png" alt="Steering example 1, frame 5">
+          <img src="assets/qwen/zoom/5.png" alt="Steering example 1, frame 6">
+        </div>
+        <div class="slider-card-body">
+          <div class="slider-card-copy">
+            <p class="slider-label">Zoom Out</p>
+          </div>
+          <input class="showcase-range" type="range" min="0" max="5" step="1" value="0" aria-label="Realism Boost slider">
+        </div>
+      </article>
+      <article class="slider-card">
+        <div class="slider-media" data-slider-gallery>
+          <img src="assets/qwen/cartoon/0.png" alt="Steering example 2, frame 1">
+          <img src="assets/qwen/cartoon/1.png" alt="Steering example 2, frame 2">
+          <img src="assets/qwen/cartoon/2.png" alt="Steering example 2, frame 3">
+          <img src="assets/qwen/cartoon/3.png" alt="Steering example 2, frame 4">
+          <img src="assets/qwen/cartoon/4.png" alt="Steering example 2, frame 5">
+          <img src="assets/qwen/cartoon/5.png" alt="Steering example 2, frame 6">
+        </div>
+        <div class="slider-card-body">
+          <div class="slider-card-copy">
+            <p class="slider-label">Cartoon Style</p>
+          </div>
+          <input class="showcase-range" type="range" min="0" max="5" step="1" value="0" aria-label="Expression Shift slider">
+        </div>
+      </article>
+      <article class="slider-card">
+        <div class="slider-media" data-slider-gallery>
+          <img src="assets/qwen/rotten/0.png" alt="Steering example 3, frame 1">
+          <img src="assets/qwen/rotten/1.png" alt="Steering example 3, frame 2">
+          <img src="assets/qwen/rotten/2.png" alt="Steering example 3, frame 3">
+          <img src="assets/qwen/rotten/3.png" alt="Steering example 3, frame 4">
+          <img src="assets/qwen/rotten/4.png" alt="Steering example 3, frame 5">
+          <img src="assets/qwen/rotten/5.png" alt="Steering example 3, frame 6">
+        </div>
+        <div class="slider-card-body">
+          <div class="slider-card-copy">
+            <p class="slider-label">Rotten</p>
+          </div>
+          <input class="showcase-range" type="range" min="0" max="5" step="1" value="0" aria-label="Lighting Warmth slider">
+        </div>
+      </article>
+      <article class="slider-card">
+        <div class="slider-media" data-slider-gallery>
+          <img src="assets/qwen/dog-bear/0.png" alt="Steering example 4, frame 1">
+          <img src="assets/qwen/dog-bear/1.png" alt="Steering example 4, frame 2">
+          <img src="assets/qwen/dog-bear/2.png" alt="Steering example 4, frame 3">
+          <img src="assets/qwen/dog-bear/3.png" alt="Steering example 4, frame 4">
+          <img src="assets/qwen/dog-bear/4.png" alt="Steering example 4, frame 5">
+          <img src="assets/qwen/dog-bear/5.png" alt="Steering example 4, frame 6">
+        </div>
+        <div class="slider-card-body">
+          <div class="slider-card-copy">
+            <p class="slider-label">Dog -> Bear</p>
+          </div>
+          <input class="showcase-range" type="range" min="0" max="5" step="1" value="0" aria-label="Scene Cleanup slider">
+        </div>
+      </article>
+      <article class="slider-card">
+        <div class="slider-media" data-slider-gallery>
+          <img src="assets/qwen/photorealism/0.png" alt="Steering example 5, frame 1">
+          <img src="assets/qwen/photorealism/1.png" alt="Steering example 5, frame 2">
+          <img src="assets/qwen/photorealism/2.png" alt="Steering example 5, frame 3">
+          <img src="assets/qwen/photorealism/3.png" alt="Steering example 5, frame 4">
+          <img src="assets/qwen/photorealism/4.png" alt="Steering example 5, frame 5">
+          <img src="assets/qwen/photorealism/5.png" alt="Steering example 5, frame 6">
+        </div>
+        <div class="slider-card-body">
+          <div class="slider-card-copy">
+            <p class="slider-label">Photorealism</p>
+          </div>
+          <input class="showcase-range" type="range" min="0" max="5" step="1" value="0" aria-label="Color Contrast slider">
+        </div>
+      </article>
+      <article class="slider-card">
+        <div class="slider-media" data-slider-gallery>
+          <img src="assets/qwen/size/0.png" alt="Steering example 6, frame 1">
+          <img src="assets/qwen/size/3.png" alt="Steering example 6, frame 4">
+          <img src="assets/qwen/size/4.png" alt="Steering example 6, frame 5">
+          <img src="assets/qwen/size/5.png" alt="Steering example 6, frame 6">
+        </div>
+        <div class="slider-card-body">
+          <div class="slider-card-copy">
+            <p class="slider-label">Size</p>
+          </div>
+          <input class="showcase-range" type="range" min="0" max="5" step="1" value="0" aria-label="Detail Recovery slider">
+        </div>
+      </article>
+  </div>
+</section>
+<!-- End slider showcase -->
+
+<!-- Paper abstract -->
+<section class="section hero is-light">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+We present a training-free framework for continuous and controllable image editing at test time for text-conditioned generative models. In contrast to prior approaches that rely on additional training or manual user intervention, we find that a simple steering in the text-embedding space is sufficient to produce smooth edit control. Given a target concept (e.g., enhancing photorealism or changing facial expression), we use a large language model to automatically construct a small set of debiased contrastive prompt pairs, from which we compute a steering vector in the generator’s text-encoder space. We then add this vector directly to the input prompt representation to control generation along the desired semantic axis. To obtain a continuous control, we propose an elastic range search procedure that automatically identifies an effective interval of steering magnitudes, avoiding both under-steering (no-edit) and over-steering (changing other attributes). Adding the scaled versions of the same vector within this interval yields smooth and continuous edits. Since our method modifies only textual representations, it naturally generalizes across text-conditioned modalities, including image and video generation. To quantify the steering continuity, we introduce a new evaluation metric that measures the uniformity of semantic change across edit strengths. We compare the continuous editing behavior across methods and find that, despite its simplicity and lightweight design, our approach is comparable to training-based alternatives, outperforming other training-free methods.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End paper abstract -->
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Finding a Steering Direction</h2>
+        <div class="content">
+          <div class="steering-demo" id="steering-demo">
+            <div class="steering-demo-panel">
+              <div class="steering-demo-head">
+                <span class="steering-demo-tag">Step 1</span>
+                <h4>Debiased Contrastive Pairs</h4>
+              </div>
+              <p class="steering-step-summary">
+                Generate balanced positive and negative prompts, then keep only the concept-bearing token spans so the direction isolates the intended attribute.
+              </p>
+              <div class="steering-pair-list">
+                <div class="steering-pair-card">
+                  <div class="steering-pair-row is-negative">
+                    <span class="steering-pair-badge">-</span>
+                    <p>A portrait of a <span class="steering-token is-negative">frowning</span> person in warm window light.</p>
+                  </div>
+                  <div class="steering-pair-row is-positive">
+                    <span class="steering-pair-badge">+</span>
+                    <p>A portrait of a <span class="steering-token is-positive">smiling</span> person in warm window light.</p>
+                  </div>
+                </div>
+                <div class="steering-pair-card">
+                  <div class="steering-pair-row is-negative">
+                    <span class="steering-pair-badge">-</span>
+                    <p>A close-up shot of a <span class="steering-token is-negative">frowning</span> face beside a curtain.</p>
+                  </div>
+                  <div class="steering-pair-row is-positive">
+                    <span class="steering-pair-badge">+</span>
+                    <p>A close-up shot of a <span class="steering-token is-positive">smiling</span> face beside a curtain.</p>
+                  </div>
+                </div>
+                <div class="steering-pair-card">
+                  <div class="steering-pair-row is-negative">
+                    <span class="steering-pair-badge">-</span>
+                    <p>A studio photo of a <span class="steering-token is-negative">frowning</span> figure wearing a blue shirt.</p>
+                  </div>
+                  <div class="steering-pair-row is-positive">
+                    <span class="steering-pair-badge">+</span>
+                    <p>A studio photo of a <span class="steering-token is-positive">smiling</span> figure wearing a blue shirt.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="steering-demo-panel steering-demo-panel-center">
+              <div class="steering-demo-head">
+                <span class="steering-demo-tag">Step 2</span>
+                <h4>Difference-of-Means Direction</h4>
+              </div>
+              <p class="steering-step-summary">
+                Pool the selected token embeddings, average each side, take their difference, and normalize once to obtain the global steering direction <em>d<sub>s</sub></em>.
+              </p>
+              <div class="steering-formula-box">
+                <div class="steering-formula-block">
+                <div class="steering-formula-line">
+                  <span class="formula-var">e</span><sub>i</sub><sup>+</sup>
+                  <span class="formula-op">=</span>
+                  <span class="formula-fn">pool</span><span class="formula-paren">(</span>
+                  <span class="formula-var">E</span><span class="formula-paren">(</span><span class="formula-var">p</span><sub>i</sub><sup>+</sup><span class="formula-paren">)</span><span class="formula-bracket">[</span><span class="formula-var">S</span><sub>i</sub><sup>+</sup><span class="formula-bracket">]</span>
+                  <span class="formula-paren">)</span>
+                </div>
+                <div class="steering-formula-line">
+                  <span class="formula-var">e</span><sub>i</sub><sup>-</sup>
+                  <span class="formula-op">=</span>
+                  <span class="formula-fn">pool</span><span class="formula-paren">(</span>
+                  <span class="formula-var">E</span><span class="formula-paren">(</span><span class="formula-var">p</span><sub>i</sub><sup>-</sup><span class="formula-paren">)</span><span class="formula-bracket">[</span><span class="formula-var">S</span><sub>i</sub><sup>-</sup><span class="formula-bracket">]</span>
+                  <span class="formula-paren">)</span>
+                </div>
+                <div class="steering-formula-line">
+                  <span class="formula-var">s</span>
+                  <span class="formula-op">=</span>
+                  <span class="formula-fn">mean</span><span class="formula-paren">(</span><span class="formula-var">e</span><sup>+</sup><span class="formula-paren">)</span>
+                  <span class="formula-op">-</span>
+                  <span class="formula-fn">mean</span><span class="formula-paren">(</span><span class="formula-var">e</span><sup>-</sup><span class="formula-paren">)</span>
+                  <span class="formula-sep">,</span>
+                  <span class="formula-var">d</span><sub>s</sub>
+                  <span class="formula-op">=</span>
+                  <span class="formula-frac">
+                    <span class="formula-frac-top"><span class="formula-var">s</span></span>
+                    <span class="formula-frac-bottom">∥<span class="formula-var">s</span>∥<sub>2</sub></span>
+                  </span>
+                </div>
+                </div>
+                <p class="steering-formula-caption">Difference-of-means over pooled concept-token embeddings.</p>
+              </div>
+              <div class="steering-chart-wrap">
+                <img class="steering-chart-gif" src="assets/generated/steering_vector_demo.gif" alt="Animated demonstration of difference-of-means steering and prompt-space application">
+                <div class="steering-chart-note">
+                  The pooled negative and positive embeddings define two centroids; their difference becomes the steering axis that is then added back into the prompt representation.
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section is-light">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">LLM-Assisted Token Selection</h2>
+        <div class="token-selection-intro">
+          The LLM picks only the tokens that should receive the steering vector. This keeps the edit aligned with the concept and avoids drifting the whole prompt. An <strong>implicit</strong> prompt does not explicitly contain the target attribute to be changed, while an <strong>explicit</strong> prompt already names that attribute or style in the text.
+        </div>
+
+        <div class="token-selection-grid">
+          <div class="token-selection-card">
+            <div class="token-selection-head">
+              <span class="token-selection-tag">Local Edit</span>
+              <h3>Add Smile</h3>
+            </div>
+            <div class="token-selection-example">
+              <p class="token-selection-label">Implicit Prompt</p>
+              <div class="token-selection-prompt">
+                A portrait of a <span class="token-chip token-chip-target">man</span> in a forest
+              </div>
+              <p class="token-selection-decision">Steer the main subject noun.</p>
+            </div>
+            <div class="token-selection-example">
+              <p class="token-selection-label">Explicit Prompt</p>
+              <div class="token-selection-prompt">
+                A portrait of a <span class="token-chip token-chip-attribute">sad</span> man
+              </div>
+              <p class="token-selection-decision">Steer only the attribute token.</p>
+            </div>
+          </div>
+
+          <div class="token-selection-card">
+            <div class="token-selection-head">
+              <span class="token-selection-tag">Stylization</span>
+              <h3>Cartoon Style</h3>
+            </div>
+            <div class="token-selection-example">
+              <p class="token-selection-label">Implicit Prompt</p>
+              <div class="token-selection-prompt">
+                A <span class="token-chip token-chip-target">lighthouse</span> on a cliff
+              </div>
+              <p class="token-selection-decision">Steer the main subject noun.</p>
+            </div>
+            <div class="token-selection-example">
+              <p class="token-selection-label">Explicit Prompt</p>
+              <div class="token-selection-prompt">
+                A <span class="token-chip token-chip-attribute">photorealistic</span> lighthouse on a cliff
+              </div>
+              <p class="token-selection-decision">Steer the style token.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="token-rules-card">
+          <div class="token-rules-head">
+            <h3>Selection Rules</h3>
+            <p>Prompts are treated as <strong>implicit</strong> when the target attribute is absent, and <strong>explicit</strong> when it is already named.</p>
+          </div>
+          <div class="token-rules-table">
+            <div class="token-rules-row token-rules-header">
+              <div>Edit Type</div>
+              <div>Implicit Prompt</div>
+              <div>Explicit Prompt</div>
+            </div>
+            <div class="token-rules-row">
+              <div class="token-rules-type">Local</div>
+              <div>Steer the main entity.</div>
+              <div>Steer the attribute token.</div>
+            </div>
+            <div class="token-rules-row">
+              <div class="token-rules-type">Stylization</div>
+              <div>Steer the main subject noun.</div>
+              <div>Steer the style token.</div>
+            </div>
+            <div class="token-rules-row">
+              <div class="token-rules-type">Global</div>
+              <div>Steer the main scene nouns.</div>
+              <div>Steer only the global edit token.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Elastic Range Search</h2>
+        <div class="content">
+          <p>
+            Given a steering direction, we need a usable range of strengths. We initialize a small set of anchor
+            values, generate outputs for each one, and measure perceptual distances between neighboring edits.
+          </p>
+          <p>
+            The <strong>elastic band</strong> procedure then expands the range where gaps are too large, moves interior
+            control points to equalize normalized gaps, and filters strengths that either change too little or distort
+            the image too much relative to the unsteered anchor.
+          </p>
+          <p>
+            The toy animation below walks through the actual search loop: initialization, gap evaluation, midpoint
+            expansion, left/right moves, and final similarity-based filtering into a usable slider range.
+          </p>
+          <figure class="method-figure">
+            <img src="assets/generated/elastic_band_demo.gif" alt="Animated toy run of elastic band search">
+          </figure>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">More Results</h2>
+        <div class="content">
+          <p>
+            We show additional results on <strong>Qwen Image Edit</strong> and <strong>Flux2</strong> models.
+          </p>
+        </div>
+        <div class="results-highlight">
+          <p>
+The image editing models below as well as the video models in the next section all rely on different text encoders, providing direct evidence that our method generalizes across different backbones.
+          </p>
+        </div>
+
+        <div class="results-group">
+          <h3 class="results-group-title">Flux2</h3>
+          <div class="slider-grid results-slider-grid">
+            <article class="slider-card">
+              <div class="slider-media" data-slider-gallery>
+                <img src="assets/flux2/cyberpunk/0.png" alt="Flux2 cyberpunk result 1">
+                <img src="assets/flux2/cyberpunk/1.png" alt="Flux2 cyberpunk result 2">
+                <img src="assets/flux2/cyberpunk/2.png" alt="Flux2 cyberpunk result 3">
+                <img src="assets/flux2/cyberpunk/3.png" alt="Flux2 cyberpunk result 4">
+                <img src="assets/flux2/cyberpunk/4.png" alt="Flux2 cyberpunk result 5">
+                <img src="assets/flux2/cyberpunk/5.png" alt="Flux2 cyberpunk result 6">
+              </div>
+              <div class="slider-card-body">
+                <div class="slider-card-copy">
+                  <p class="slider-label">Cyberpunk Scene</p>
+                </div>
+                <input class="showcase-range" type="range" min="0" max="3" step="1" value="0" aria-label="Flux2 age slider">
+              </div>
+            </article>
+            <article class="slider-card">
+              <div class="slider-media" data-slider-gallery>
+                <img src="assets/flux2/crowded/0.png" alt="Flux2 crowded result 1">
+                <img src="assets/flux2/crowded/1.png" alt="Flux2 crowded result 2">
+                <img src="assets/flux2/crowded/2.png" alt="Flux2 crowded result 3">
+                <img src="assets/flux2/crowded/3.png" alt="Flux2 crowded result 4">
+                <img src="assets/flux2/crowded/4.png" alt="Flux2 crowded result 5">
+                <img src="assets/flux2/crowded/5.png" alt="Flux2 crowded result 6">
+              </div>
+              <div class="slider-card-body">
+                <div class="slider-card-copy">
+                  <p class="slider-label">Crowdedness</p>
+                </div>
+                <input class="showcase-range" type="range" min="0" max="3" step="1" value="0" aria-label="Flux2 crowdedness slider">
+              </div>
+            </article>
+            <article class="slider-card">
+              <div class="slider-media" data-slider-gallery>
+                <img src="assets/flux2/ghibli/0.png" alt="Flux2 ghibli result 1">
+                <img src="assets/flux2/ghibli/1.png" alt="Flux2 ghibli result 2">
+                <img src="assets/flux2/ghibli/2.png" alt="Flux2 ghibli result 3">
+                <img src="assets/flux2/ghibli/3.png" alt="Flux2 ghibli result 4">
+                <img src="assets/flux2/ghibli/4.png" alt="Flux2 ghibli result 5">
+                <img src="assets/flux2/ghibli/5.png" alt="Flux2 ghibli result 6">
+              </div>
+              <div class="slider-card-body">
+                <div class="slider-card-copy">
+                  <p class="slider-label">Ghibli Style</p>
+                </div>
+                <input class="showcase-range" type="range" min="0" max="3" step="1" value="0" aria-label="Flux2 ghibli slider">
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <div class="results-group">
+          <h3 class="results-group-title">Qwen Image Edit</h3>
+          <div class="slider-grid results-slider-grid">
+            <article class="slider-card">
+              <div class="slider-media" data-slider-gallery>
+                <img src="assets/qwen/beard/0.png" alt="Qwen beard result 1">
+                <img src="assets/qwen/beard/1.png" alt="Qwen beard result 2">
+                <img src="assets/qwen/beard/2.png" alt="Qwen beard result 3">
+                <img src="assets/qwen/beard/3.png" alt="Qwen beard result 4">
+                <img src="assets/qwen/beard/4.png" alt="Qwen beard result 5">
+                <img src="assets/qwen/beard/5.png" alt="Qwen beard result 6">
+              </div>
+              <div class="slider-card-body">
+                <div class="slider-card-copy">
+                  <p class="slider-label">Beard</p>
+                </div>
+                <input class="showcase-range" type="range" min="0" max="5" step="1" value="0" aria-label="Qwen beard slider">
+              </div>
+            </article>
+            <article class="slider-card">
+              <div class="slider-media" data-slider-gallery>
+                <img src="assets/qwen/rust/0.png" alt="Qwen rust result 1">
+                <img src="assets/qwen/rust/1.png" alt="Qwen rust result 2">
+                <img src="assets/qwen/rust/2.png" alt="Qwen rust result 3">
+                <img src="assets/qwen/rust/3.png" alt="Qwen rust result 4">
+                <img src="assets/qwen/rust/4.png" alt="Qwen rust result 5">
+              </div>
+              <div class="slider-card-body">
+                <div class="slider-card-copy">
+                  <p class="slider-label">Rust</p>
+                </div>
+                <input class="showcase-range" type="range" min="0" max="5" step="1" value="0" aria-label="Qwen rust slider">
+              </div>
+            </article>
+            <article class="slider-card">
+              <div class="slider-media" data-slider-gallery>
+                <img src="assets/qwen/night_time/0.png" alt="Qwen night time result 1">
+                <img src="assets/qwen/night_time/1.png" alt="Qwen night time result 2">
+                <img src="assets/qwen/night_time/2.png" alt="Qwen night time result 3">
+                <img src="assets/qwen/night_time/3.png" alt="Qwen night time result 4">
+                <img src="assets/qwen/night_time/4.png" alt="Qwen night time result 5">
+                <img src="assets/qwen/night_time/5.png" alt="Qwen night time result 6">
+              </div>
+              <div class="slider-card-body">
+                <div class="slider-card-copy">
+                  <p class="slider-label">Night Time</p>
+                </div>
+                <input class="showcase-range" type="range" min="0" max="5" step="1" value="0" aria-label="Qwen night time slider">
+              </div>
+            </article>
+            <article class="slider-card">
+              <div class="slider-media" data-slider-gallery>
+                <img src="assets/qwen/skinny/5.png" alt="Qwen skinny result 6">
+                <img src="assets/qwen/skinny/4.png" alt="Qwen skinny result 5">
+                <img src="assets/qwen/skinny/3.png" alt="Qwen skinny result 4">
+                <img src="assets/qwen/skinny/2.png" alt="Qwen skinny result 3">
+                <img src="assets/qwen/skinny/1.png" alt="Qwen skinny result 2">
+                <img src="assets/qwen/skinny/0.png" alt="Qwen skinny result 1">
+              </div>
+              <div class="slider-card-body">
+                <div class="slider-card-copy">
+                  <p class="slider-label">Muscular</p>
+                </div>
+                <input class="showcase-range" type="range" min="0" max="5" step="1" value="0" aria-label="Qwen cartoon slider">
+              </div>
+            </article>
+            <article class="slider-card">
+              <div class="slider-media" data-slider-gallery>
+                <img src="assets/qwen/winter/0.png" alt="Qwen winter result 1">
+                <img src="assets/qwen/winter/4.png" alt="Qwen winter result 5">
+                <img src="assets/qwen/winter/1.png" alt="Qwen winter result 2">
+                <img src="assets/qwen/winter/2.png" alt="Qwen winter result 3">
+                <img src="assets/qwen/winter/3.png" alt="Qwen winter result 4">
+                <img src="assets/qwen/winter/5.png" alt="Qwen winter result 6">
+              </div>
+              <div class="slider-card-body">
+                <div class="slider-card-copy">
+                  <p class="slider-label">Winter</p>
+                </div>
+                <input class="showcase-range" type="range" min="0" max="5" step="1" value="0" aria-label="Qwen winter slider">
+              </div>
+            </article>
+            <article class="slider-card">
+              <div class="slider-media" data-slider-gallery>
+                <img src="assets/qwen/smile/0.png" alt="Qwen smile result 1">
+                <img src="assets/qwen/smile/1.png" alt="Qwen smile result 2">
+                <img src="assets/qwen/smile/2.png" alt="Qwen smile result 3">
+                <img src="assets/qwen/smile/3.png" alt="Qwen smile result 4">
+                <img src="assets/qwen/smile/4.png" alt="Qwen smile result 5">
+                <img src="assets/qwen/smile/5.png" alt="Qwen smile result 6">
+              </div>
+              <div class="slider-card-body">
+                <div class="slider-card-copy">
+                  <p class="slider-label">Smile </p>
+                </div>
+                <input class="showcase-range" type="range" min="0" max="1" step="1" value="0" aria-label="Qwen photorealism slider">
+              </div>
+            </article>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section is-light">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Results on Wan2.1 and Wan Vace</h2>
+        <p class="has-text-danger is-size-6 mb-3">Warning: for fast loading, videos are resized, so there may be some jitteriness in the videos.</p>
+        <div class="content">
+          <p>
+            Because we operate only on the text encoder, the same steering directions can also be applied to video
+            backbones that share the same text encoder.
+          </p>
+        </div>
+        <div class="results-group">
+          <h3 class="results-group-title">Wan2.1</h3>
+          <div class="slider-grid results-slider-grid two-up-results">
+            <article class="slider-card">
+              <div class="slider-media" data-slider-gallery>
+                <video muted loop playsinline preload="metadata">
+                  <source src="assets/wan2-1/cartoon/0.mp4" type="video/mp4">
+                </video>
+                <video muted loop playsinline preload="metadata">
+                  <source src="assets/wan2-1/cartoon/1.mp4" type="video/mp4">
+                </video>
+                <video muted loop playsinline preload="metadata">
+                  <source src="assets/wan2-1/cartoon/2.mp4" type="video/mp4">
+                </video>
+                <video muted loop playsinline preload="metadata">
+                  <source src="assets/wan2-1/cartoon/3.mp4" type="video/mp4">
+                </video>
+              </div>
+              <div class="slider-card-body">
+                <div class="slider-card-copy">
+                  <p class="slider-label">Cartoon</p>
+                </div>
+                <input class="showcase-range" type="range" min="0" max="3" step="1" value="0" aria-label="Wan2.1 cartoon video slider">
+              </div>
+            </article>
+            <article class="slider-card">
+              <div class="slider-media" data-slider-gallery>
+                <video muted loop playsinline preload="metadata">
+                  <source src="assets/wan2-1/anime_main/0.mp4" type="video/mp4">
+                </video>
+                <video muted loop playsinline preload="metadata">
+                  <source src="assets/wan2-1/anime_main/1.mp4" type="video/mp4">
+                </video>
+                <video muted loop playsinline preload="metadata">
+                  <source src="assets/wan2-1/anime_main/2.mp4" type="video/mp4">
+                </video>
+                <video muted loop playsinline preload="metadata">
+                  <source src="assets/wan2-1/anime_main/3.mp4" type="video/mp4">
+                </video>
+              </div>
+              <div class="slider-card-body">
+                <div class="slider-card-copy">
+                  <p class="slider-label">Anime</p>
+                </div>
+                <input class="showcase-range" type="range" min="0" max="3" step="1" value="0" aria-label="Wan2.1 anime video slider">
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <div class="results-group">
+          <h3 class="results-group-title">VACE</h3>
+          <div class="content">
+            <p>
+              It is also possible to edit the first frame of a video and then use the VACE pipeline to propagate that edit consistently through the generated video.
+            </p>
+          </div>
+          <div class="slider-grid results-slider-grid two-up-results">
+            <article class="slider-card">
+              <div class="slider-media" data-slider-gallery>
+                <video muted loop playsinline preload="metadata">
+                  <source src="assets/wan-vace-first-frame-edit/rusty/0.mp4" type="video/mp4">
+                </video>
+                <video muted loop playsinline preload="metadata">
+                  <source src="assets/wan-vace-first-frame-edit/rusty/1.mp4" type="video/mp4">
+                </video>
+                <video muted loop playsinline preload="metadata">
+                  <source src="assets/wan-vace-first-frame-edit/rusty/2.mp4" type="video/mp4">
+                </video>
+                <video muted loop playsinline preload="metadata">
+                  <source src="assets/wan-vace-first-frame-edit/rusty/3.mp4" type="video/mp4">
+                </video>
+              </div>
+              <div class="slider-card-body">
+                <div class="slider-card-copy">
+                  <p class="slider-label">Rusty Motorcycle First-Frame Edit</p>
+                </div>
+                <input class="showcase-range" type="range" min="0" max="3" step="1" value="0" aria-label="VACE cyberpunk video slider">
+              </div>
+            </article>
+            <article class="slider-card">
+              <div class="slider-media" data-slider-gallery>
+                <video muted loop playsinline preload="metadata">
+                  <source src="assets/wan-vace-first-frame-edit/cartoon/0.mp4" type="video/mp4">
+                </video>
+                <video muted loop playsinline preload="metadata">
+                  <source src="assets/wan-vace-first-frame-edit/cartoon/1.mp4" type="video/mp4">
+                </video>
+                <video muted loop playsinline preload="metadata">
+                  <source src="assets/wan-vace-first-frame-edit/cartoon/2.mp4" type="video/mp4">
+                </video>
+                <video muted loop playsinline preload="metadata">
+                  <source src="assets/wan-vace-first-frame-edit/cartoon/3.mp4" type="video/mp4">
+                </video>
+              </div>
+              <div class="slider-card-body">
+                <div class="slider-card-copy">
+                  <p class="slider-label">Cartoon First-Frame Edit</p>
+                </div>
+                <input class="showcase-range" type="range" min="0" max="3" step="1" value="0" aria-label="VACE summer video slider">
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!--BibTex citation -->
+  <section class="section" id="BibTeX">
+    <div class="container is-max-desktop content">
+      <h2 class="title">BibTeX</h2>
+      <pre><code>BibTex Code Here</code></pre>
+    </div>
+</section>
+<!--End BibTex citation -->
+
+
+  <footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a> which was adopted from the <a href="https://nerfies.github.io" target="_blank">Nerfies</a> project page.
+          </p>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Statcounter tracking code -->
+  
+<!-- You can add a tracker to track page visits by creating an account at statcounter.com -->
+
+    <!-- End of Statcounter Code -->
+
+  </body>
+  </html>

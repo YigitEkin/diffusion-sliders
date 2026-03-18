@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Supplementary Material | The Unreasonable Effectiveness of Text Embedding Interpolation for Continuous Image Steering</title>
+    <link rel="icon" type="image/png" href="../images.png">
+    <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+  rel="stylesheet">
+    <link rel="stylesheet" href="../static/css/bulma.min.css">
+    <link rel="stylesheet" href="../static/css/bulma-carousel.min.css">
+    <link rel="stylesheet" href="../static/css/bulma-slider.min.css">
+    <link rel="stylesheet" href="../static/css/fontawesome.all.min.css">
+    <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="../static/css/index.css">
+  </head>
+  <body>
+    <div class="page-shell">
+      <section class="hero supplementary-hero-card" id="top">
+        <div class="hero-body">
+          <div class="container is-max-desktop">
+            <div class="columns is-centered">
+              <div class="column has-text-centered">
+                <h1 class="title  is-3 publication-title is-centered">The Unreasonable Effectiveness of <br/> Text Embedding Interpolation <br/> for Continuous Image Steering</h1>
+                <p class="supplementary-subtitle">Supplementary Material</p>
+                <div class="is-size-5 publication-authors">
+                  <span class="author-block">
+                    <a href="https://yigitekin.github.io" target="_blank">Yiğit Ekin</a>
+                  </span>
+                  <span class="author-block">
+                    <a href="https://yossigandelsman.github.io" target="_blank">Yossi Gandelsman</a>
+                  </span>
+                </div>
+                <div class="is-size-6 publication-authors">
+                  <span class="author-block">Reve Image</span>
+                </div>
+                <div class="column has-text-centered">
+                  <div class="publication-links">
+                    <span class="link-block">
+                      <a href="../index.html" target="_blank" class="external-link button is-normal is-rounded is-dark">
+                        <span class="icon">
+                          <i class="fas fa-home"></i>
+                        </span>
+                        <span>Main Page</span>
+                      </a>
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <nav class="toc" aria-labelledby="toc-title">
+        <div class="section-heading">
+          <p class="section-kicker">Overview</p>
+          <h2 id="toc-title">Table of Contents</h2>
+        </div>
+        <ol>
+          <li><a href="#wan21">Videos with Steering for Wan2.1</a></li>
+          <li><a href="#wan-vace">Videos with Steering for Wan VACE First-Frame Edit</a></li>
+          <li><a href="#qwen">More Results on Qwen Image Edit</a></li>
+          <li><a href="#flux">More Results on Flux</a></li>
+          <li><a href="#flux2">Flux2 Results</a></li>
+          <li><a href="#qualitative">Qualitative Results of All Methods</a></li>
+        </ol>
+      </nav>
+
+      <main>
+
+        <section class="content-section" id="wan21">
+          <div class="section-heading">
+            <p class="section-kicker">Video Results</p>
+            <h2>Videos with Steering for Wan2.1</h2>
+          </div>
+
+          <div class="results-group">
+            <div class="group-heading">
+              <p class="group-kicker">Category 01</p>
+              <h3>Cartoon</h3>
+            </div>
+            <div class="edit-meta" aria-label="Edit description">
+              <div class="meta-card">
+                <span class="meta-label">Edit Type</span>
+                <p>Cartoon.</p>
+              </div>
+              <div class="meta-card">
+                <span class="meta-label">Intensity Direction</span>
+                <p>Left to right: edit intensity increases.</p>
+              </div>
+            </div>
+            <div class="video-grid" data-gallery="wan21-category-1"></div>
+          </div>
+
+          <div class="results-group">
+            <div class="group-heading">
+              <p class="group-kicker">Category 02</p>
+              <h3>Anime</h3>
+            </div>
+            <div class="edit-meta" aria-label="Edit description">
+              <div class="meta-card">
+                <span class="meta-label">Edit Type</span>
+                <p>Anime</p>
+              </div>
+              <div class="meta-card">
+                <span class="meta-label">Intensity Direction</span>
+                <p>Left to right: edit intensity increases.</p>
+              </div>
+            </div>
+            <div class="video-grid" data-gallery="wan21-category-2"></div>
+          </div>
+        </section>
+
+        <section class="content-section" id="wan-vace">
+          <div class="section-heading">
+            <p class="section-kicker">Video Results</p>
+            <h2>Videos with Steering for Wan VACE First-Frame Edit</h2>
+          </div>
+          <div class="method-note">
+            <span class="meta-label">Workflow</span>
+            <p>
+              For Wan VACE, we first extract the depth map of the input video. We then run inference
+              with VACE using the edited first frame of the video as the first-frame condition.
+            </p>
+          </div>
+
+          <div class="results-group">
+            <div class="group-heading">
+              <p class="group-kicker">Category 01</p>
+              <h3>Cyberpunk</h3>
+            </div>
+            <div class="edit-meta" aria-label="Edit description">
+              <div class="meta-card">
+                <span class="meta-label">Edit Type</span>
+                <p>Cyberpunk</p>
+              </div>
+              <div class="meta-card">
+                <span class="meta-label">Intensity Direction</span>
+                <p>Left to right: edit intensity increases.</p>
+              </div>
+            </div>
+            <div class="video-grid" data-gallery="wan-vace-category-1"></div>
+          </div>
+
+          <div class="results-group">
+            <div class="group-heading">
+              <p class="group-kicker">Category 02</p>
+              <h3>Summer</h3>
+            </div>
+            <div class="edit-meta" aria-label="Edit description">
+              <div class="meta-card">
+                <span class="meta-label">Edit Type</span>
+                <p>Summer</p>
+              </div>
+              <div class="meta-card">
+                <span class="meta-label">Intensity Direction</span>
+                <p>Left to right: edit intensity increases.</p>
+              </div>
+            </div>
+            <div class="video-grid" data-gallery="wan-vace-category-2"></div>
+          </div>
+        </section>
+
+        <section class="content-section placeholder-section" id="qwen">
+          <div class="section-heading">
+            <p class="section-kicker">Image Results</p>
+            <h2>More Results on Qwen Image Edit</h2>
+          </div>
+          <div class="image-groups" data-image-section="qwen"></div>
+        </section>
+
+        <section class="content-section placeholder-section" id="flux">
+          <div class="section-heading">
+            <p class="section-kicker">Image Results</p>
+            <h2>More Results on Flux</h2>
+          </div>
+          <div class="image-groups" data-image-section="flux"></div>
+        </section>
+
+        <section class="content-section placeholder-section" id="flux2">
+          <div class="section-heading">
+            <p class="section-kicker">Image Results</p>
+            <h2>Flux2 Results</h2>
+          </div>
+          <div class="image-groups" data-image-section="flux2"></div>
+        </section>
+
+        <section class="content-section placeholder-section" id="qualitative">
+          <div class="section-heading">
+            <p class="section-kicker">Method Comparison</p>
+            <h2>Qualitative Results of All Methods</h2>
+          </div>
+          <div class="method-note">
+            <span class="meta-label">Layout</span>
+            <p>
+              Each edit type is shown as a subsection. Inside each subsection, every model is displayed
+              as one 5-image row: original plus four edit outputs.
+            </p>
+          </div>
+          <div class="image-groups" data-comparison-section="qualitative"></div>
+        </section>
+      </main>
+    </div>
+
+    <script>
+      const ASSET_ROOT = "src";
+      const assetPath = (path) => `${ASSET_ROOT}/${path}`;
+
+      const galleries = {
+        "wan21-category-1": [
+          "wan2-1/cartoon/0.mp4",
+          "wan2-1/cartoon/1.mp4",
+          "wan2-1/cartoon/2.mp4",
+          "wan2-1/cartoon/3.mp4",
+        ].map(assetPath),
+        "wan21-category-2": [
+          "wan2-1/anime/0.mp4",
+          "wan2-1/anime/1.mp4",
+          "wan2-1/anime/2.mp4",
+          "wan2-1/anime/3.mp4",
+        ].map(assetPath),
+        "wan-vace-category-1": [
+          "wan-vace-first-frame-edit/cyberpunk/0.mp4",
+          "wan-vace-first-frame-edit/cyberpunk/1.mp4",
+          "wan-vace-first-frame-edit/cyberpunk/2.mp4",
+          "wan-vace-first-frame-edit/cyberpunk/3.mp4",
+        ].map(assetPath),
+        "wan-vace-category-2": [
+          "wan-vace-first-frame-edit/summer/0.mp4",
+          "wan-vace-first-frame-edit/summer/1.mp4",
+          "wan-vace-first-frame-edit/summer/2.mp4",
+          "wan-vace-first-frame-edit/summer/3.mp4",
+        ].map(assetPath),
+      };
+
+      const imageSections = {
+        qwen: {
+          categories: [
+            {
+              title: "cartoon",
+              folder: "category-1",
+              images: [
+                "qwen/cartoon/0.png",
+                "qwen/cartoon/1.png",
+                "qwen/cartoon/2.png",
+                "qwen/cartoon/3.png",
+                "qwen/cartoon/4.png",
+                "qwen/cartoon/5.png",
+              ].map(assetPath),
+            },
+            {
+              title: "winter",
+              folder: "category-2",
+              images: [
+                "qwen/winter/0.png",
+                "qwen/winter/1.png",
+                "qwen/winter/2.png",
+                "qwen/winter/3.png",
+                "qwen/winter/4.png",
+                "qwen/winter/5.png",
+              ].map(assetPath),
+            },
+            {
+              title: "night time",
+              folder: "category-3",
+              images: [
+                "qwen/night_time/0.png",
+                "qwen/night_time/1.png",
+                "qwen/night_time/2.png",
+                "qwen/night_time/3.png",
+                "qwen/night_time/4.png",
+                "qwen/night_time/5.png",
+              ].map(assetPath),
+            },
+            {
+              title: "beard",
+              folder: "category-4",
+              images: [
+                "qwen/beard/0.png",
+                "qwen/beard/1.png",
+                "qwen/beard/2.png",
+                "qwen/beard/3.png",
+                "qwen/beard/4.png",
+                "qwen/beard/5.png",
+              ].map(assetPath),
+            },
+            {
+              title: "rust",
+              folder: "category-5",
+              images: [
+                "qwen/rust/0.png",
+                "qwen/rust/1.png",
+                "qwen/rust/2.png",
+                "qwen/rust/3.png",
+                "qwen/rust/4.png",
+                "qwen/rust/5.png",
+              ].map(assetPath),
+            },
+          ],
+          root: "qwen-image-edit",
+        },
+        flux: {
+          categories: [
+            {
+              title: "cartoon",
+              folder: "category-1",
+              images: [
+                "fluxdev/cartoon/0.png",
+                "fluxdev/cartoon/1.png",
+                "fluxdev/cartoon/2.png",
+                "fluxdev/cartoon/3.png",
+              ].map(assetPath),
+            },
+            {
+              title: "wood",
+              folder: "category-2",
+              images: [
+                "fluxdev/wood/0.png",
+                "fluxdev/wood/1.png",
+                "fluxdev/wood/2.png",
+                "fluxdev/wood/3.png",
+              ].map(assetPath),
+            },
+            {
+              title: "smile",
+              folder: "category-3",
+              images: [
+                "fluxdev/smile/0.png",
+                "fluxdev/smile/1.png",
+                "fluxdev/smile/2.png",
+                "fluxdev/smile/3.png",
+              ].map(assetPath),
+            },
+            {
+              title: "photorealism",
+              folder: "category-4",
+              images: [
+                "fluxdev/photorealistic/0.0.png",
+                "fluxdev/photorealistic/3.0.png",
+                "fluxdev/photorealistic/4.0.png",
+                "fluxdev/photorealistic/5.0.png",
+              ].map(assetPath),
+            },
+          ],
+          root: "flux",
+        },
+        flux2: {
+          categories: [
+            {
+              title: "crowded",
+              folder: "category-1",
+              images: [
+                "flux2/crowded/0.png",
+                "flux2/crowded/1.png",
+                "flux2/crowded/2.png",
+                "flux2/crowded/3.png",
+              ].map(assetPath),
+            },
+            {
+              title: "age",
+              folder: "category-2",
+              images: [
+                "flux2/age/0.png",
+                "flux2/age/1.png",
+                "flux2/age/2.png",
+                "flux2/age/3.png",
+              ].map(assetPath),
+            },
+            {
+              title: "ghibli",
+              folder: "category-3",
+              images: [
+                "flux2/ghibli/0.png",
+                "flux2/ghibli/1.png",
+                "flux2/ghibli/2.png",
+                "flux2/ghibli/3.png",
+              ].map(assetPath),
+            },
+          ],
+          root: "flux2",
+        },
+      };
+
+      const placeholderImagePaths = [
+        "fluxdev/smile/0.png",
+        "fluxdev/smile/1.png",
+        "fluxdev/smile/2.png",
+        "fluxdev/smile/3.png",
+        "fluxdev/smile/4.png",
+      ].map(assetPath);
+
+      const qualitativeEditTypes = ["smile", "anime"];
+      const qualitativeMethods = [
+        {
+          title: "SliderEdit",
+          slug: "slideredit",
+          filesByEditType: {
+            smile: ["1", "2", "3", "4"],
+            anime: ["0", "1", "2", "3"],
+          },
+        },
+        {
+          title: "Kontinous Kontext",
+          slug: "kontinous-kontext",
+          filesByEditType: {
+            smile: ["1", "2", "3", "4"],
+            anime: ["1", "2", "3", "4"],
+          },
+        },
+        {
+          title: "Our Qwen Image Edit",
+          slug: "our-qwen-image-edit",
+          filesByEditType: {
+            smile: ["0", "1", "2", "3"],
+            anime: ["0", "1", "2", "3"],
+          },
+        },
+        {
+          title: "FluxSpace",
+          slug: "fluxspace",
+          filesByEditType: {
+            smile: ["0", "1", "2", "3"],
+            anime: ["0", "1", "2", "3"],
+          },
+        },
+        {
+          title: "SAEdit",
+          slug: "saedit",
+          filesByEditType: {
+            smile: ["0", "1", "2", "3"],
+            anime: ["0", "1", "2", "3"],
+          },
+        },
+        {
+          title: "Flux Slider",
+          slug: "flux-slider",
+          filesByEditType: {
+            smile: ["0", "1", "2", "3"],
+            anime: ["1", "2", "3", "4"],
+          },
+        },
+      ];
+
+      const qualitativeComparisons = qualitativeEditTypes.map((editType) => ({
+        title: editType,
+        methods: qualitativeMethods.map((method) => {
+          const editFiles = method.filesByEditType?.[editType] || ["1", "2", "3", "4"];
+          return {
+            title: method.title,
+            images: [
+              { label: "Original", path: assetPath(`qualitative/${editType}/original/original.png`), original: true },
+              ...editFiles.map((fileName, outputIndex) => ({
+                label: `Edit ${outputIndex + 1}`,
+                path: assetPath(`qualitative/${editType}/${method.slug}/${fileName}.png`),
+              })),
+            ],
+          };
+        }),
+      }));
+
+      function buildCard(path) {
+        const card = document.createElement("article");
+        card.className = "video-card";
+
+        const media = document.createElement("video");
+        media.className = "video-player";
+        media.autoplay = true;
+        media.controls = true;
+        media.muted = true;
+        media.defaultMuted = true;
+        media.loop = true;
+        media.preload = "metadata";
+        media.playsInline = true;
+        media.src = path;
+
+        media.addEventListener("error", () => {
+          const placeholder = document.createElement("div");
+          placeholder.className = "video-missing";
+          placeholder.innerHTML = `
+            <strong>Missing asset</strong>
+            <span>${path}</span>
+            <p>Add this file to populate the card automatically.</p>
+          `;
+          media.replaceWith(placeholder);
+        });
+
+        card.append(media);
+        return card;
+      }
+
+      function syncVideoGroup(group) {
+        const videos = Array.from(group.querySelectorAll(".video-player"));
+        if (videos.length < 2) {
+          videos.forEach((video) => video.play().catch(() => {}));
+          return;
+        }
+
+        const leader = videos[0];
+        let isSyncing = false;
+
+        const syncFollowers = () => {
+          if (isSyncing) return;
+          isSyncing = true;
+
+          videos.slice(1).forEach((video) => {
+            if (Math.abs(video.currentTime - leader.currentTime) > 0.12) {
+              video.currentTime = leader.currentTime;
+            }
+            if (leader.paused && !video.paused) {
+              video.pause();
+            } else if (!leader.paused && video.paused) {
+              video.play().catch(() => {});
+            }
+          });
+
+          isSyncing = false;
+        };
+
+        const playAll = () => {
+          videos.forEach((video) => {
+            if (Math.abs(video.currentTime - leader.currentTime) > 0.12) {
+              video.currentTime = leader.currentTime;
+            }
+            video.play().catch(() => {});
+          });
+        };
+
+        leader.addEventListener("play", playAll);
+        leader.addEventListener("seeking", syncFollowers);
+        leader.addEventListener("seeked", syncFollowers);
+        leader.addEventListener("ratechange", () => {
+          videos.slice(1).forEach((video) => {
+            video.playbackRate = leader.playbackRate;
+          });
+        });
+        leader.addEventListener("pause", () => {
+          videos.slice(1).forEach((video) => video.pause());
+        });
+        leader.addEventListener("timeupdate", syncFollowers);
+        leader.addEventListener("ended", () => {
+          videos.forEach((video) => {
+            video.currentTime = 0;
+            video.play().catch(() => {});
+          });
+        });
+
+        videos.slice(1).forEach((video) => {
+          video.addEventListener("play", () => {
+            if (leader.paused) {
+              leader.play().catch(() => {});
+            }
+            syncFollowers();
+          });
+        });
+
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                playAll();
+              } else {
+                videos.forEach((video) => video.pause());
+              }
+            });
+          },
+          { threshold: 0.35 }
+        );
+
+        observer.observe(group);
+      }
+
+      function formatEditType(title) {
+        return title
+          .split(" ")
+          .map((part) => part.charAt(0).toUpperCase() + part.slice(1))
+          .join(" ");
+      }
+
+      function getImageStageLabel(index, totalImages) {
+        if (index === 0) {
+          return "Original";
+        }
+
+        const steeredCount = totalImages - 1;
+        if (steeredCount === 3) {
+          return ["Weak", "Medium", "Strong"][index - 1];
+        }
+        if (steeredCount === 4) {
+          return ["Weak", "Medium", "Strong", "Strongest"][index - 1];
+        }
+        return `Edit ${index}`;
+      }
+
+      function buildImageCard(path, index, totalImages, labelOverride = null, isOriginal = false) {
+        const card = document.createElement("article");
+        card.className = "image-card";
+        const isOriginalCard = isOriginal || index === 0;
+        if (isOriginalCard) {
+          card.classList.add("is-original");
+        }
+
+        const frame = document.createElement("div");
+        frame.className = "image-frame";
+
+        const image = document.createElement("img");
+        image.className = "result-image";
+        const stageLabel = labelOverride || getImageStageLabel(index, totalImages);
+        image.alt = stageLabel;
+        image.loading = "lazy";
+        image.src = path;
+
+        image.addEventListener("error", () => {
+          const placeholder = document.createElement("div");
+          placeholder.className = "image-missing";
+          if (isOriginalCard) {
+            placeholder.classList.add("is-original");
+          }
+          placeholder.innerHTML = `
+            <strong>${stageLabel}</strong>
+            <p>Add image asset</p>
+          `;
+          image.replaceWith(placeholder);
+        });
+
+        frame.appendChild(image);
+
+        card.append(frame);
+        return card;
+      }
+
+      function buildImageCategory(sectionKey, category, index) {
+        const group = document.createElement("div");
+        group.className = "results-group";
+        const imagePaths = category.images || placeholderImagePaths;
+
+        const heading = document.createElement("div");
+        heading.className = "group-heading";
+        heading.innerHTML = `
+          <p class="group-kicker">Category ${String(index + 1).padStart(2, "0")}</p>
+          <h3>${category.title}</h3>
+        `;
+
+        const note = document.createElement("div");
+        note.className = "edit-meta";
+        note.innerHTML = `
+          <div class="meta-card">
+            <span class="meta-label">Edit Type</span>
+            <p>${formatEditType(category.title)}</p>
+          </div>
+          <div class="meta-card">
+            <span class="meta-label">Row Convention</span>
+            <p>Leftmost image is the original input. The ${Math.max(imagePaths.length - 1, 0)} images to the right are steered outputs with increasing edit intensity.</p>
+          </div>
+        `;
+
+        const row = document.createElement("div");
+        row.className = "image-row";
+        row.style.gridTemplateColumns = `repeat(${imagePaths.length}, minmax(0, 1fr))`;
+
+        imagePaths.forEach((path, imageIndex) => {
+          row.appendChild(buildImageCard(path, imageIndex, imagePaths.length));
+        });
+
+        group.append(heading, note, row);
+        return group;
+      }
+
+      function buildQualitativeComparison(edit, index) {
+        const group = document.createElement("div");
+        group.className = "results-group";
+
+        const heading = document.createElement("div");
+        heading.className = "group-heading";
+        heading.innerHTML = `
+          <p class="group-kicker">Category ${String(index + 1).padStart(2, "0")}</p>
+          <h3>${edit.title}</h3>
+        `;
+
+        const methodRows = document.createElement("div");
+        methodRows.className = "comparison-methods";
+
+        edit.methods.forEach((method) => {
+          const rowBlock = document.createElement("div");
+          rowBlock.className = "comparison-row";
+
+          const methodLabel = document.createElement("div");
+          methodLabel.className = "comparison-label";
+          methodLabel.textContent = method.title;
+
+          const row = document.createElement("div");
+          row.className = "image-row";
+          row.style.gridTemplateColumns = `repeat(${method.images.length}, minmax(0, 1fr))`;
+
+          method.images.forEach((image, imageIndex) => {
+            row.appendChild(
+              buildImageCard(
+                image.path,
+                imageIndex,
+                method.images.length,
+                image.label,
+                Boolean(image.original)
+              )
+            );
+          });
+
+          rowBlock.append(methodLabel, row);
+          methodRows.appendChild(rowBlock);
+        });
+
+        group.append(heading, methodRows);
+        return group;
+      }
+
+      Object.entries(galleries).forEach(([key, items]) => {
+        const mount = document.querySelector(`[data-gallery="${key}"]`);
+        items.forEach((path) => mount.appendChild(buildCard(path)));
+      });
+
+      Object.entries(imageSections).forEach(([sectionKey, section]) => {
+        const mount = document.querySelector(`[data-image-section="${sectionKey}"]`);
+        section.categories.forEach((category, index) => {
+          mount.appendChild(buildImageCategory(sectionKey, category, index));
+        });
+      });
+
+      const qualitativeMount = document.querySelector('[data-comparison-section="qualitative"]');
+      qualitativeComparisons.forEach((edit, index) => {
+        qualitativeMount.appendChild(buildQualitativeComparison(edit, index));
+      });
+
+      document.querySelectorAll(".results-group").forEach((group) => {
+        if (group.querySelector(".video-player")) {
+          syncVideoGroup(group);
+        }
+      });
+    </script>
+  </body>
+</html>
