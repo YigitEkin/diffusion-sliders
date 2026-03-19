@@ -1,0 +1,59 @@
+STEER_CONCEPT = "concept here"
+NUMBER_OF_EXAMPLES = 100
+
+prompt = f"""
+You are an advanced data generation assistant.
+
+Your task is to create a contrastive dataset of {NUMBER_OF_EXAMPLES} examples for computing a steering vector.
+
+The steering concept to focus on is: {STEER_CONCEPT}
+
+Output exactly {NUMBER_OF_EXAMPLES} JSON objects, one per line (JSON Lines), with no list brackets, no extra commentary, and no markdown. Each line must be:
+{{"pos_style": "<positive identifier>", "neg_style": "<negative identifier>", "pos": "<positive full sentence>", "neg": "<negative full sentence>"}}
+
+---
+### 1. Internal Analysis (YOUR FIRST STEP)
+
+Before generating, analyze {STEER_CONCEPT}:
+* Is it an Abstract Style? (e.g., "photorealistic vs cartoon", "bright vs dark", "metal vs wood"). These can apply to any subject.
+* Is it a Subject-Specific Attribute? (e.g., "smiling vs neutral" [faces], "ripe vs unripe" [fruit], "young vs old" [living beings/objects]). These are tied to a class of subjects.
+
+Based on your analysis, you MUST follow the correct rules from Section 2.
+
+---
+### 2. Generation Guidelines (STRICT)
+
+A. Universal Rules (Apply to ALL concepts):
+* PARALLELISM: The two sentences in a pair MUST share the same syntactic skeleton and content words (subject, setting, composition, perspective).
+* MINIMAL DELTA: The ONLY differences between "pos" and "neg" are the minimal tokens that express the concept contrast (e.g., "smiling" ↔ "neutral").
+* STYLE NEUTRALITY: Do NOT change rendering domain, lighting, camera, or layout.
+* IDENTIFIERS: Use the SAME "pos_style" and "neg_style" identifiers for ALL {NUMBER_OF_EXAMPLES} lines. These identifiers MUST also appear in the corresponding sentences.
+
+B. Content & Subject Rules (CHOOSE A or B based on your Analysis):
+
+    [RULE SET A] For ABSTRACT STYLES (e.g., cartoon, bright):
+    * SUBJECT: You MUST vary subjects and settings widely (e.g., objects, landscapes, animals, architecture, indoor/outdoor).
+    * GOAL: Decouple the style from any one context.
+    * SAFETY: Avoid specific identities (age, gender, race) if people/animals are used. Use neutral terms ("person", "animal").
+
+    [RULE SET B] For SUBJECT-SPECIFIC ATTRIBUTES (e.g., smiling, ripe):
+    * SUBJECT: You MUST focus *only* on the relevant subject class (e.g., "person" or "face" for smiling; "fruit" or "plant" for ripe). Do NOT use inanimate objects like statues for concepts like "smiling".
+    * GOAL: Isolate the attribute's effect on its specific subject.
+    * SAFETY: To avoid bias *within* the subject class, use neutral, general terms (e.g., "person," "face," "figure," "human"). Do NOT specify age, gender, race, or ethnicity unless it is the *target concept itself*.
+
+---
+### 3. Quality Checks (must pass):
+* Exactly {NUMBER_OF_EXAMPLES} lines; each is valid JSON.
+* "pos" and "neg" are grammatical, depictable, and differ ONLY by the minimal concept tokens.
+* The rules from Section 2 (A and B) have been correctly followed.
+
+---
+### 4. Examples
+
+* Example for "bright vs dark" (Abstract Style - Rule A):
+    {{"pos_style": "bright", "neg_style": "dark", "pos": "A bright living room with large windows.", "neg": "A dark living room with large windows."}}
+* Example for "smiling vs neutral" (Subject-Specific - Rule B):
+    {{"pos_style": "smiling", "neg_style": "neutral", "pos": "A photorealistic portrait of a person with a smiling expression.", "neg": "A photorealistic portrait of a person with a neutral expression."}}
+
+Now generate {NUMBER_OF_EXAMPLES} JSON objects that represent the {STEER_CONCEPT} contrast following these instructions, one per line.
+"""

@@ -1,0 +1,47 @@
+# Elastic-band hyperparameters for Qwen Image Edit — local edits.
+# Local edits target specific objects or regions (e.g. "make the hat red").
+# Perceptual changes are subtler, so tighter thresholds and smaller steps are used.
+
+elastic_band:
+  # A strength is "valid" if its DreamSim distance to the unsteered reference is below this value.
+  max_dreamsim_distance: 0.08
+
+  # How many times to double the initial minimum strength when probing for an effective starting point.
+  max_doubling_steps: 3
+
+  # Initial and maximum number of control points on the strength axis.
+  starting_number_of_points: 8
+  maximum_number_of_points: 16
+
+  # Maximum number of refinement iterations before stopping.
+  maximum_number_of_iterations: 25
+
+  # A gap is "target-sized" when DreamSim(left, right) ≈ this value.
+  target_gap: 0.05
+
+  # Insert a midpoint when the largest gap exceeds target_gap * (1 + expand_threshold).
+  expand_threshold: 0.15
+
+  # Gap-imbalance amplification for step sizing.
+  lam: 1.0
+
+  # Minimum separation enforced between any two neighbouring control points.
+  epsilon: 0.8
+
+  # Fraction of epsilon used as a minimum meaningful move.
+  move_fraction: 1.0
+
+  # Step size = base_step_fraction * interval_width * cosine_decay.
+  base_step_fraction: 0.05
+
+  # A move is only accepted if it exceeds this absolute threshold.
+  min_meaningful_move: 1.5
+
+  # Skip moving a point if its max local gap is below this normalised value.
+  min_normalized_gap_for_move: 0.15
+
+  # Skip moving a point if its gap imbalance is below this value.
+  min_gap_imbalance_for_move: 0.02
+
+  # Images generated per forward-pass batch.
+  inference_batch_size: 8

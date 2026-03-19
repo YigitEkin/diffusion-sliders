@@ -1,0 +1,26 @@
+# Core deep learning
+torch>=2.4.0
+torchvision>=0.19.0
+
+# Hugging Face ecosystem
+transformers>=4.51.0
+diffusers>=0.33.0
+accelerate>=1.0.0
+peft>=0.14.0
+huggingface-hub>=0.27.0
+
+# OpenAI API (dataset generation + token selection)
+openai>=1.0.0
+
+# Perceptual similarity metric (elastic-band search)
+dreamsim>=0.1.0
+
+# Image / array utilities
+Pillow>=10.0.0
+numpy>=1.24.0
+
+# Progress bars
+tqdm>=4.65.0
+
+# YAML config loading
+PyYAML>=6.0

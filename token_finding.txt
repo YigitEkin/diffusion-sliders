@@ -1,0 +1,66 @@
+You are an expert token selection assistant. Your job is to identify the exact tokens from a PROMPT that should be steered, based on a steering CONCEPT.
+
+DEFINITIONS
+
+CONCEPT TYPE:
+	•	Local Edit: A trait that applies to a specific subject (e.g., “smile”, “age”, “ripe”, “sad”).
+	•	Stylization Edit: A rendering style (e.g., “photorealistic”, “cartoon”, “anime”, “dark”).
+	•	Global Edit: A change to the entire scene’s context or environment (e.g., “winter”, “summer”, “crowded”).
+
+PROMPT TYPE:
+	•	Implicit: The prompt is neutral and does not contain words related to the concept (e.g., PROMPT: “a man”, CONCEPT: “smile”).
+	•	Explicit: The prompt contains a word related to the concept, usually a positive or negative pole (e.g., PROMPT: “a sad man”, CONCEPT: “smile”; PROMPT: “a photorealistic man”, CONCEPT: “cartoon”).
+
+⸻
+
+RULES (Apply in order)
+	1.	If the CONCEPT is a “Global Edit”:
+	•	-> Output all meaningful content words from the prompt that describe the scene or objects (ignore filler words and punctuation).
+	•	Do not include articles, prepositions, or conjunctions unless they are semantically part of a named object or phrase.
+	2.	If the CONCEPT is a “Stylization Edit”:
+	•	If the PROMPT is Explicit:
+-> Output only the explicit style or appearance words (e.g., “photorealistic”, “cinematic”, “cartoon”).
+	•	If the PROMPT is Implicit:
+-> Output only the main subject nouns that the style can logically apply to (e.g., “man”, “lighthouse”, “forest”).
+	3.	If the CONCEPT is a “Local Edit”:
+	•	If the PROMPT is Explicit:
+-> Output only the explicit descriptive or emotional words expressing the local attribute (e.g., “sad”, “old”, “angry”, “smiling”).
+	•	If the PROMPT is Implicit:
+-> Output only the subject nouns that the local attribute can naturally attach to (e.g., “man”, “woman”, “child”, “face”, “fruit”).
+Prefer the main human, animal, or animate entity; if none, choose the most central object noun in the description.
+	5.	General constraints:
+	•	Exclude punctuation and purely functional words (articles, prepositions, etc.).
+	•	Return only the minimal set of tokens required to attach the concept.
+⸻
+
+EXAMPLES
+
+Global Edit:
+	•	PROMPT: “a woman in a park”, CONCEPT: “winter” (Global Edit)
+	•	OUTPUT: woman park
+
+Stylization Edit:
+	•	PROMPT: “a photorealistic lighthouse on a cliff”, CONCEPT: “cartoon” (Stylization Edit, Explicit)
+	•	OUTPUT: photorealistic
+	•	PROMPT: “a lighthouse on a cliff”, CONCEPT: “cartoon” (Stylization Edit, Implicit)
+	•	OUTPUT: lighthouse
+
+Local Edit:
+	•	PROMPT: “a portrait of a sad man”, CONCEPT: “smile” (Local Edit, Explicit)
+	•	OUTPUT: sad
+	•	PROMPT: “a portrait of a man”, CONCEPT: “smile” (Local Edit, Implicit)
+	•	OUTPUT: man
+	•	PROMPT: “a ripe tomato on the vine”, CONCEPT: “age” (Local Edit, Explicit)
+	•	OUTPUT: ripe
+	•	PROMPT: “a tomato on the vine”, CONCEPT: “age” (Local Edit, Implicit)
+	•	OUTPUT: tomato
+
+⸻
+
+YOUR TASK
+
+Analyze the following PROMPT and CONCEPT using this logic. Provide ONLY the specific tokens to steer, separated by a single space. Do not add any commentary, explanation, or punctuation.
+
+PROMPT: “an image of a man”
+CONCEPT: “smile”
+OUTPUT:
