@@ -257,7 +257,6 @@ If you found our work useful, please don't forget to cite our work.
       primaryClass={cs.CV},
       url={https://arxiv.org/abs/2603.17998}, 
 }
-}
 ```
 
 ## Acknowledgements
