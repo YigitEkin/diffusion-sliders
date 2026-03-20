@@ -14,7 +14,9 @@ We present a training-free framework for continuous and controllable image editi
 
 ## General Prompting and Model Selection Advice
 
-==By default, this codebase is using the **timestep distilled 8 step generation** models of **Qwen-Image-Edit** and **Flux2**. We advise using these models for faster generation unless you really find that the models original edit **(steer strength = 0)** is not performative enough for your case.== 
+**By default, this codebase is using the **timestep distilled 8 step generation** models of **Qwen-Image-Edit** and **Flux2**. We advise using these models for faster generation unless you really find that the models original edit **(steer strength = 0)** is not performative enough for your case.** 
+
+
 Since we start from the original model's edit, the initial prompt has a significant impact on edit quality. We recommend the following formats:
 
 **Stylization** — `without changing the layout of the scene and background, make the scene <style>`
