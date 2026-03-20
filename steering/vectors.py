@@ -130,9 +130,13 @@ def save_steering_outputs(
 ) -> None:
     """Save the steering vector and projection statistics to *out_dir*."""
     out_dir.mkdir(parents=True, exist_ok=True)
-    np.save(out_dir / "steering_last_layer.npy", steering.astype(np.float32))
-    np.save(out_dir / "max_projection_value.npy", np.array(max_projection, dtype=np.float32))
-    np.save(out_dir / "min_projection_value.npy", np.array(min_projection, dtype=np.float32))
+
+    steering_f32 = steering.astype(np.float32)
+    steering_f32 = steering_f32 / np.linalg.norm(steering_f32)
+
+    np.save(out_dir / "steering_last_layer.npy", steering_f32)
+    np.save(out_dir / "max_projection_value.npy", max_projection)
+    np.save(out_dir / "min_projection_value.npy", min_projection)
     print(f"Saved steering vector → {out_dir / 'steering_last_layer.npy'}")
     print(f"Saved max projection  → {out_dir / 'max_projection_value.npy'}")
     print(f"Saved min projection  → {out_dir / 'min_projection_value.npy'}")

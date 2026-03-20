@@ -4,7 +4,7 @@
 
 elastic_band:
   # A strength is "valid" if its DreamSim distance to the unsteered reference is below this value.
-  max_dreamsim_distance: 0.08
+  max_dreamsim_distance: 0.04
 
   # How many times to double the initial minimum strength when probing for an effective starting point.
   max_doubling_steps: 3
@@ -17,31 +17,32 @@ elastic_band:
   maximum_number_of_iterations: 25
 
   # A gap is "target-sized" when DreamSim(left, right) ≈ this value.
-  target_gap: 0.05
+  # Qwen local edits for subtle identity-preserving changes tend to land near ~0.01.
+  target_gap: 0.01
 
   # Insert a midpoint when the largest gap exceeds target_gap * (1 + expand_threshold).
-  expand_threshold: 0.15
+  expand_threshold: 0.6
 
   # Gap-imbalance amplification for step sizing.
   lam: 1.0
 
   # Minimum separation enforced between any two neighbouring control points.
-  epsilon: 0.8
+  epsilon: 0.25
 
   # Fraction of epsilon used as a minimum meaningful move.
   move_fraction: 1.0
 
   # Step size = base_step_fraction * interval_width * cosine_decay.
-  base_step_fraction: 0.05
+  base_step_fraction: 0.03
 
   # A move is only accepted if it exceeds this absolute threshold.
-  min_meaningful_move: 1.5
+  min_meaningful_move: 0.5
 
   # Skip moving a point if its max local gap is below this normalised value.
-  min_normalized_gap_for_move: 0.15
+  min_normalized_gap_for_move: 0.08
 
   # Skip moving a point if its gap imbalance is below this value.
-  min_gap_imbalance_for_move: 0.02
+  min_gap_imbalance_for_move: 0.01
 
   # Images generated per forward-pass batch.
   inference_batch_size: 8

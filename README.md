@@ -12,8 +12,9 @@
 
 We present a training-free framework for continuous and controllable image editing at test time for text-conditioned generative models. In contrast to prior approaches that rely on additional training or manual user intervention, we find that a simple steering in the text-embedding space is sufficient to produce smooth edit control. Given a target concept (e.g., enhancing photorealism or changing facial expression), we use a large language model to automatically construct a small set of debiased contrastive prompt pairs, from which we compute a steering vector in the generator's text-encoder space. We then add this vector directly to the input prompt representation to control generation along the desired semantic axis. To obtain a continuous control, we propose an elastic range search procedure that automatically identifies an effective interval of steering magnitudes, avoiding both under-steering (no-edit) and over-steering (changing other attributes). Adding the scaled versions of the same vector within this interval yields smooth and continuous edits. Since our method modifies only textual representations, it naturally generalizes across text-conditioned modalities, including image and video generation. To quantify the steering continuity, we introduce a new evaluation metric that measures the uniformity of semantic change across edit strengths. We compare the continuous editing behavior across methods and find that, despite its simplicity and lightweight design, our approach is comparable to training-based alternatives, outperforming other training-free methods.
 
-## Prompting Advice
+## General Prompting and Model Selection Advice
 
+==By default, this codebase is using the **timestep distilled 8 step generation** models of **Qwen-Image-Edit** and **Flux2**. We advise using these models for faster generation unless you really find that the models original edit **(steer strength = 0)** is not performative enough for your case.== 
 Since we start from the original model's edit, the initial prompt has a significant impact on edit quality. We recommend the following formats:
 
 **Stylization** — `without changing the layout of the scene and background, make the scene <style>`
@@ -28,7 +29,7 @@ Since we start from the original model's edit, the initial prompt has a signific
 **Local edit (with object)** — `without changing the layout of the scene and the <object>, make the <object> <edit>`
 > e.g. `without changing the layout of the scene and the motorcycle, make the motorcycle rusty`
 
-TLDR: Anchoring the prompt with phrases like *without changing the layout of the scene*, *background*, or *the person's identity* helps preserve unrelated attributes and improves consistency across steering strengths.
+**TLDR:** Anchoring the prompt with phrases like *without changing the layout of the scene*, *background*, or *the person's identity* helps preserve unrelated attributes and improves consistency across steering strengths.
 
 ## Setup
 
