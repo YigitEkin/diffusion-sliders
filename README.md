@@ -1,4 +1,4 @@
-# The Unreasonable Effectiveness of Text Embedding Interpolation for Continuous Image Steering
+# The Unreasonable Effectiveness of Text Embedding Interpolation for Continuous Image Steering [NeurIPS 2026]
 
 [Yigit Ekin](https://yigitekin.github.io/)<sup>1</sup>, [Yossi Gandelsman](https://yossigandelsman.github.io/)<sup>1</sup>
 
@@ -6,11 +6,17 @@
 
 [![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0) [![Project Website](https://img.shields.io/badge/Project_website-red.svg)](https://yigitekin.github.io/diffusion-sliders/) [![arXiv](https://img.shields.io/badge/arXiv-2505.13344-b31b1b.svg)](https://arxiv.org/abs/2603.17998)
 
+This repository contains the official implementation of our [paper](https://arxiv.org/abs/2603.17998), accepted to **NeurIPS 2026**.
+
 ---
 
 ![Teaser](assets/teaser.png)
 
 We present a training-free framework for continuous and controllable image editing at test time for text-conditioned generative models. In contrast to prior approaches that rely on additional training or manual user intervention, we find that a simple steering in the text-embedding space is sufficient to produce smooth edit control. Given a target concept (e.g., enhancing photorealism or changing facial expression), we use a large language model to automatically construct a small set of debiased contrastive prompt pairs, from which we compute a steering vector in the generator's text-encoder space. We then add this vector directly to the input prompt representation to control generation along the desired semantic axis. To obtain a continuous control, we propose an elastic range search procedure that automatically identifies an effective interval of steering magnitudes, avoiding both under-steering (no-edit) and over-steering (changing other attributes). Adding the scaled versions of the same vector within this interval yields smooth and continuous edits. Since our method modifies only textual representations, it naturally generalizes across text-conditioned modalities, including image and video generation. To quantify the steering continuity, we introduce a new evaluation metric that measures the uniformity of semantic change across edit strengths. We compare the continuous editing behavior across methods and find that, despite its simplicity and lightweight design, our approach is comparable to training-based alternatives, outperforming other training-free methods.
+
+## News
+
+- Our paper has been accepted to NeurIPS 2026.
 
 ## General Prompting and Model Selection Advice
 
@@ -251,9 +257,10 @@ Results are saved to `outputs/{concept}/elastic_band/summary.json`, which record
 If you found our work useful, please don't forget to cite our work.
 
 ```bibtex
-@misc{ekin2026unreasonableeffectivenesstextembedding,
+@inproceedings{ekin2026unreasonableeffectivenesstextembedding,
       title={The Unreasonable Effectiveness of Text Embedding Interpolation for Continuous Image Steering}, 
       author={Yigit Ekin and Yossi Gandelsman},
+      booktitle={Advances in Neural Information Processing Systems},
       year={2026},
       eprint={2603.17998},
       archivePrefix={arXiv},
